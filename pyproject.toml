@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "longest-word"
+version = "0.1.0"
+description = ""
+authors = ["Mark White <mw.wagon@btinternet.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+pytest = "^8.0.1"
+pylint = "^3.0.3"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
