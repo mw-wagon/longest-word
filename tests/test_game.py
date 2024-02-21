@@ -26,7 +26,6 @@ class TestGame:
             # verify
             assert game.is_valid("") is False
 
-
     def test_word_uses_right_letters(self):
             # setup
             game = Game()
@@ -35,7 +34,7 @@ class TestGame:
             # exercise
             game.grid = list(test_grid)
             # verify
-            assert game.is_valid(test_word) is True
+            assert game.is_valid("BE") is True
             # teardown
             assert game.grid == list(test_grid)
 
@@ -74,3 +73,9 @@ class TestGame:
             assert game.is_valid(test_word) is False
             # teardown
             assert game.grid == list(test_grid)
+
+    def test_unknown_word_is_invalid(self):
+        """A word that is not in the English dictionary should not be valid"""
+        new_game = Game()
+        new_game.grid = list('KWIENFUQW') # Force the grid to a test case:
+        assert new_game.is_valid('FEUN') is False
