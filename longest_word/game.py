@@ -3,6 +3,7 @@ This is a short game to make the longest English word from a given set of a 9 ch
 """
 import string
 import random
+import requests
 
 class Game:
     """ A nine character grid is created and then words from that set are tested for validity"""
@@ -14,13 +15,19 @@ class Game:
 
     def is_valid(self, word: str) -> bool:
         """Return True if and only if the word is valid, given the Game's grid"""
-        if word:
-            if len(set(word).intersection(set(self.grid))) > 0:
-                return True
+        if word: #for blanks
+            if len(set(word).intersection(set(self.grid))) > 0 : # that uses letters in grid
+                return self.__check_dictionary(word) # that is a word in English
         return False
+
+    @staticmethod
+    def __check_dictionary(word):
+        word_good_bad = requests.get(f"https://wagon-dictionary.herokuapp.com/{word}").json()
+        return word_good_bad['found']
 
     def __str__(self):
         return self.__class__.__name__
+
 
 if __name__ == '__main__':
     game = Game()
