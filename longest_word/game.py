@@ -8,10 +8,10 @@ import requests
 class Game:
     """ A nine character grid is created and then words from that set are tested for validity"""
 
-    def __init__(self) -> list:
+    def __init__(self, score=0) -> list:
         """Attribute a random grid to size 9"""
         self.grid = [random.choice(string.ascii_uppercase) for _ in range(9)]
-
+        self.score = score
 
     def is_valid(self, word: str) -> bool:
         """Return True if and only if the word is valid, given the Game's grid"""
@@ -27,6 +27,10 @@ class Game:
 
     def __str__(self):
         return self.__class__.__name__
+
+    def get_score(self, word):
+        self.score += len(word)
+        return self.score
 
 
 if __name__ == '__main__':

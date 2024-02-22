@@ -2,6 +2,8 @@
 
 from flask import Flask, render_template, request
 from longest_word.game import Game
+# import pdb; pdb.set_trace()
+
 
 app = Flask(__name__)
 
@@ -17,4 +19,7 @@ def check():
     game.grid = list(request.form['grid'])
     word = request.form['word']
     is_valid = game.is_valid(word)
-    return render_template('check.html', is_valid=is_valid, grid=game.grid, word=word)
+    score = game.get_score(word)
+    return render_template('check.html', is_valid=is_valid, grid=game.grid,
+                           word=word, score=score)
+
