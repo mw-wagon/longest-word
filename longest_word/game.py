@@ -17,6 +17,7 @@ class Game:
         """Return True if and only if the word is valid, given the Game's grid"""
         if word: #for blanks
             if len(set(word).intersection(set(self.grid))) > 0 : # that uses letters in grid
+                self.score += len(word)
                 return self.__check_dictionary(word) # that is a word in English
         return False
 
@@ -28,10 +29,6 @@ class Game:
     def __str__(self):
         return self.__class__.__name__
 
-    def get_score(self, word):
-        self.score += len(word)
-        return self.score
-
-
+    
 if __name__ == '__main__':
     game = Game()
