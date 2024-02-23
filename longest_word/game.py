@@ -10,7 +10,8 @@ class Game:
 
     def __init__(self, score=0) -> list:
         """Attribute a random grid to size 9"""
-        self.grid = [random.choice(string.ascii_uppercase) for _ in range(9)]
+        self.grid = [random.choice(string.ascii_uppercase) for _ in range(8)]
+        self.grid.append(random.choice(['A', 'E','I', 'O', 'U', 'Y']))
         self.score = score
 
     def is_valid(self, word: str) -> bool:
@@ -29,6 +30,8 @@ class Game:
     def __str__(self):
         return self.__class__.__name__
 
-    
+
 if __name__ == '__main__':
     game = Game()
+    # print (random.choice(['A', 'E','I', 'O', 'U', 'Y']))
+    # print (game.grid)

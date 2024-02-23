@@ -86,7 +86,8 @@ class TestGame:
         test_word = "RUBBISH"
         #exercise
         game.grid = list(test_grid)
-        score = game.get_score(test_word)
+        game.is_valid(test_word)
+        score = game.score
         #verify
         assert score == 7
         #teardown
