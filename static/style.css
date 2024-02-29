@@ -7,7 +7,7 @@ body {
   flex-direction: column;
 }
 .letter {
-  border: 1px solid #999;
+  border: 2px solid #999;
   padding: 8px 6px;
   width: 24px;
   display: inline-block;
@@ -21,7 +21,7 @@ body {
   margin: 1em 0;
 }
 .valid {
-  color: green;
+  color: rgb(21, 74, 220);
 }
 .invalid {
   color: red;
